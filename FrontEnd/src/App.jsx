@@ -1,6 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import "./App.css";
 import aiAvatar from "../src/assets/AIbot.png";
+
+const API_BASE_URL = "https://aisupportbot.onrender.com";
+
 export default function App() {
   const [messages, setMessages] = useState([
     { role: "assistant", content: "Hi! I'm Sara, TechLife's virtual assistant. How can I help you today?" }
@@ -22,7 +25,7 @@ export default function App() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://127.0.0.1:5000/chat", {
+      const res = await fetch(`${API_BASE_URL}/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: input })
@@ -37,7 +40,7 @@ export default function App() {
   }
 
   async function resetChat() {
-    await fetch("http://127.0.0.1:5000/reset", { method: "POST" });
+    await fetch(`${API_BASE_URL}/reset`, { method: "POST" });
     setMessages([{ role: "assistant", content: "Hi! I'm Sara, TechLife's virtual assistant. How can I help you today?" }]);
   }
 
