@@ -13,7 +13,7 @@ API_KEY = os.getenv("API_KEY")
 client = OpenAI(api_key=API_KEY)
 
 SYSTEM_PROMPT = """
-You are a customer service chatbot. Your name is Sara. Your task is to assist users with their inquiries and provide helpful information.
+You are a customer service chatbot. Your name is Sara. Your task is to assist users with their inquiries and provide helpful information. Please give them generic return instructions within a 30 day policy to techLife
 """
 
 conversation_history = []
